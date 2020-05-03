@@ -3,7 +3,7 @@ var generateButton = document.querySelector("#generate");
 
 function generatePassword() {
   // Set password length/complexity
-  var complexity = document.getElementById("slider").value;
+  let complexity = document.getElementById("slider").value;
 
   //Possible password values
   var values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789!@#$%^&*()_+"
@@ -14,6 +14,13 @@ function generatePassword() {
     newPassword = values.charAt(Math.floor(Math.random() * Math.floor(values.length - 1)));
 
   }
+
+  // Add password to the textbox
+
+  document.getElementById("password").value = newPassword;
+
+  // Add password to previously generate passwords section
+  document.getElementById("last-used-passwords").innerHTML += newPassword + "<br /.";
 
 
 }
