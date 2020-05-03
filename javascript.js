@@ -1,6 +1,14 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+// Set password length/complexity
+var complexity = document.getElementById("slider").value;
+
+//Possible password values
+var values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789!@#$%^&*()_+"
+
+var password = "";
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
