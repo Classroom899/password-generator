@@ -1,13 +1,23 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+var generateButton = document.querySelector("#generate");
 
-// Set password length/complexity
-var complexity = document.getElementById("slider").value;
+function generatePassword() {
+  // Set password length/complexity
+  var complexity = document.getElementById("slider").value;
 
-//Possible password values
-var values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789!@#$%^&*()_+"
+  //Possible password values
+  var values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789!@#$%^&*()_+"
 
-var password = "";
+  var newPassword = "";
+
+  for (var i = 0; i < complexity; i++) {
+    newPassword = values.charAt(Math.floor(Math.random() * Math.floor(values.length - 1)));
+
+  }
+
+
+}
+
 
 // Add prompts of what questions we need for our password
 
