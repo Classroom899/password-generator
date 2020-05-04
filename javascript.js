@@ -26,7 +26,18 @@ function generatePassword() {
 }
 
 // Default length display 
+var sliderValue = document.getElementById("slider").value
 document.getElementById("length").innerHTML = "Length: 8-128 characters"
+
+// Create a function to set the length based on slider position
+document.getElementById("slider").oninput = function () {
+  if (document.getElementById("slider").value > 0) {
+    document.getElementById("length").innerHTML = "Length " + sliderValue;
+
+  } else {
+    document.getElementById("length").innerHTML = "Length: 1";
+  }
+}
 
 
 // Add prompts of what questions we need for our password
