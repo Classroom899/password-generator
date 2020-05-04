@@ -10,7 +10,7 @@ function generatePassword() {
 
   var newPassword = "";
 
-  for (var i = 0; i < complexity; i++) {
+  for (var i = 0; i <= complexity; i++) {
     newPassword = values.charAt(Math.floor(Math.random() * Math.floor(values.length - 1)));
 
   }
@@ -24,6 +24,9 @@ function generatePassword() {
 
 
 }
+
+// Default length display 
+document.getElementById("length").innerHTML = "Length: 8-128 characters"
 
 
 // Add prompts of what questions we need for our password
