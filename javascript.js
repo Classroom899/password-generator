@@ -1,3 +1,50 @@
+var confirmPassword = parseInt(prompt("Please enter a password between 8-128 characters"));
+var confirmLowercase = confirm("Would you like lowercase characters in your password?");
+var confirmUppercase = confirm("Would you like uppercase characters in your password?");
+var confirmNumeric = confirm("Would you like numbers in your password?");
+var confirmSpecialCharacters = confirm("Would you like special characters in your password?");
+
+console.log(confirmPassword);
+console.log(confirmLowercase);
+
+var uppercaseArray = ["A", "B", "C", "D", "E"];
+var lowercaseArray = ["a", "b", "c", "d", "e"];
+var numericArray = ["1", "2", "3", "4", "5"];
+var specialcharactersArray = ["!", "@", "#", "$", "%"];
+
+
+
+// If the user likes sushi (confirmPassword === true), we run the following block of code.
+if (confirmPassword < 8 || confirmPassword > 128) {
+  alert("Password needs to be between 8 and 128 characters");
+} else {
+  "Password is fine"
+}
+
+var options = {
+  length: confirmPassword,
+  lowercase: confirmLowercase,
+  uppercase: confirmUppercase,
+  numbers: confirmNumeric,
+  specialCharacters: confirmSpecialCharacters,
+
+}
+
+//For loop to call a function a set number of times that will start grabbing items in each array, condic
+
+console.log(options.lowercase);
+
+// // If the user likes ginger tea (confirmGingerTea === true), we run the following block of code.
+// else if (confirmGingerTea) {
+//   alert("You like ginger tea!!");
+// }
+// // If neither of the previous condition were true, we run the following block of code.
+// else {
+//   alert("You don't like sushi or ginger tea.");
+// }
+
+
+
 // Assignment Code
 var generateButton = document.querySelector("#generate");
 
@@ -10,7 +57,7 @@ function generatePassword() {
 
   var newPassword = "";
 
-  for (var i = 0; i <= complexity; i++) {
+  for (var i = 0; i < complexity; i++) {
     newPassword = values.charAt(Math.floor(Math.random() * Math.floor(values.length - 1)));
 
   }
@@ -21,6 +68,10 @@ function generatePassword() {
 
   // Add password to previously generate passwords section
   document.getElementById("last-used-passwords").innerHTML += newPassword + "<br /.";
+
+
+
+
 
 
 }
@@ -40,12 +91,14 @@ document.getElementById("slider").oninput = function () {
 }
 
 
-// Add prompts of what questions we need for our password
-
-
+// Add prompts of what questions we need for our password: 
 
 // WHEN prompted for password criteria
 // THEN I select which criteria to include in the password
+
+
+
+
 
 
 
@@ -53,8 +106,12 @@ document.getElementById("slider").oninput = function () {
 // THEN I choose a length of at least 8 characters and no more than 128 characters
 
 
+
 // WHEN prompted for character types to include in the password
 // THEN I choose lowercase, uppercase, numeric, and/or special characters
+
+
+// Here we create our prompt and confirm variables which will store user input.
 
 
 // WHEN I answer each prompt
@@ -77,3 +134,15 @@ generateBtn.addEventListener("click", writePassword);
 
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
+
+
+
+
+
+
+//Copy password to the saved passwords section that have already been used
+function savePassword() {
+  document.getElementById("saved").select();
+  document.execCommand("Copy");
+  alert("Password is saved");
+}
