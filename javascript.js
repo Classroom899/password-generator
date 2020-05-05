@@ -34,14 +34,6 @@ var options = {
 
 console.log(options.lowercase);
 
-// // If the user likes ginger tea (confirmGingerTea === true), we run the following block of code.
-// else if (confirmGingerTea) {
-//   alert("You like ginger tea!!");
-// }
-// // If neither of the previous condition were true, we run the following block of code.
-// else {
-//   alert("You don't like sushi or ginger tea.");
-// }
 
 
 
