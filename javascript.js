@@ -43,6 +43,21 @@ for (var i = 0; i < array.uppercaseArray; i++) {
 
 }
 
+for (var i = 0; i < array.lowercaseArray; i++) {
+  var lowercase = lowercaseArray[i];
+
+}
+
+for (var i = 0; i < array.numericArray; i++) {
+  var numeric = numericArray[i];
+
+}
+
+for (var i = 0; i < array.specialcharactersArray; i++) {
+  var specialCharacters = specialcharactersArray[i];
+
+}
+
 
 
 
