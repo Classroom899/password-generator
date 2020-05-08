@@ -38,7 +38,10 @@ var options = {
 
 //For loop to call a function a set number of times that will start grabbing items in each array, conditionals needed
 
-console.log(options.lowercase);
+for (var i = 0; i < array.uppercaseArray; i++) {
+  var uppercase = uppercaseArray[i];
+
+}
 
 
 
