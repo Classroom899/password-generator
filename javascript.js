@@ -21,6 +21,12 @@ if (confirmPassword < 8 || confirmPassword > 128) {
   "Password is fine"
 }
 
+if (confirmLowercase === true) {
+  alert("Great you have chosen to include lowercase letters");
+} else {
+  "At least two lowercase letters have been selected"
+}
+
 var options = {
   length: confirmPassword,
   lowercase: confirmLowercase,
@@ -30,7 +36,7 @@ var options = {
 
 }
 
-//For loop to call a function a set number of times that will start grabbing items in each array, condic
+//For loop to call a function a set number of times that will start grabbing items in each array, conditionals needed
 
 console.log(options.lowercase);
 
