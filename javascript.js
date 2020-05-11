@@ -16,10 +16,10 @@ var specialcharactersArray = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
 if (Number.isNaN(confirmPassword) || (confirmPassword < 8) || (confirmPassword > 128)) {
   alert("Password needs to be between 8 and 128 characters");
   // Refresh the page to start all over again
-  location.reload();
+  // location.reload();
 } else {
   // Check if at least one password type is selected. Otherwise we are going to have to restart the process all over again
-  if (!(confirmLowercase || confirmUppercase || confirmNumeric || confirmSpecialCharacters)) {
+  if ((confirmLowercase || confirmUppercase || confirmNumeric || confirmSpecialCharacters)) {
     alert("Plase select at least one character type");
     location.reload();
   }
