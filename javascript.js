@@ -19,17 +19,17 @@ if (Number.isNaN(confirmPassword) || (confirmPassword < 8) || (confirmPassword >
   // location.reload();
 } else {
   // Check if at least one password type is selected. Otherwise we are going to have to restart the process all over again
-  if ((confirmLowercase || confirmUppercase || confirmNumeric || confirmSpecialCharacters)) {
+  if (!(confirmLowercase || confirmUppercase || confirmNumeric || confirmSpecialCharacters)) {
     alert("Plase select at least one character type");
     location.reload();
   }
 }
 
-if (confirmLowercase === true) {
-  alert("Great you have chosen to include lowercase letters");
-} else {
-  "At least two lowercase letters have been selected"
-}
+// if (confirmLowercase === true) {
+//   alert("Great you have chosen to include lowercase letters");
+// } else {
+//   "At least two lowercase letters have been selected"
+// }
 
 var options = {
   length: confirmPassword,
@@ -77,11 +77,11 @@ function generatePassword() {
   // Adding in some conditional statments
   // var values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789!@#$%^&*()_+"
 
-  var values = []; // This is setting our variable values to an empty array
-  if (confirmLowercase) values.push(lowercaseArray); // First if statement I want to use and then follow each condition for each variable
-  if (confirmUppercase) values.push(uppercaseArray);
-  if (confirmNumeric) values.push(numericArray);
-  if (confirmSpecialCharacters) values.push(specialcharactersArray);
+  var values = [uppercaseArray, lowercaseArray, numericArray, specialcharactersArray];
+  if (confirmLowercase) values.push(...lowercaseArray); // First if statement I want to use and then follow each condition for each variable
+  if (confirmUppercase) values.push(...uppercaseArray);
+  if (confirmNumeric) values.push(...numericArray);
+  if (confirmSpecialCharacters) values.push(...specialcharactersArray);
 
   console.log(values);
   var newPassword = "";
@@ -92,7 +92,7 @@ function generatePassword() {
   }
 
   // Add password to the textbox
-  document.getElementById("password").value = newPassword;
+  document.getElementById("password").values = newPassword;
 
   // Add password to previously generate passwords section
   document.getElementById("last-used-passwords").innerHTML += "<li>" + newPassword + "</li>";
