@@ -14,7 +14,8 @@ var specialcharactersArray = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
 
 
 
-// If the user likes sushi (confirmPassword === true), we run the following block of code.
+// If the user likes sushi (confirmPassword === true), we run the following block of code
+// Check for "Not a number or NaN" value for confirmPassword
 if (confirmPassword < 8 || confirmPassword > 128) {
   alert("Password needs to be between 8 and 128 characters");
 } else {
@@ -37,23 +38,24 @@ var options = {
 }
 
 //For loop to call a function a set number of times that will start grabbing items in each array, conditionals needed
+// Fixed length accessor for my arrays
 
-for (var i = 0; i < array.uppercaseArray; i++) {
+for (var i = 0; i < uppercaseArray.length; i++) {
   var uppercase = uppercaseArray[i];
 
 }
 
-for (var i = 0; i < array.lowercaseArray; i++) {
+for (var i = 0; i < lowercaseArray.length; i++) {
   var lowercase = lowercaseArray[i];
 
 }
 
-for (var i = 0; i < array.numericArray; i++) {
+for (var i = 0; i < numericArray.length; i++) {
   var numeric = numericArray[i];
 
 }
 
-for (var i = 0; i < array.specialcharactersArray; i++) {
+for (var i = 0; i < specialcharactersArray.length; i++) {
   var specialCharacters = specialcharactersArray[i];
 
 }
