@@ -12,14 +12,14 @@ var lowercaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"
 var numericArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialcharactersArray = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
 
-
-
-// If the user likes sushi (confirmPassword === true), we run the following block of code
-// Check for "Not a number or NaN" value for confirmPassword
-if (confirmPassword < 8 || confirmPassword > 128) {
+// Check for "Not a number or NaN" value for confirmPassword to have this added - .isNaN is going to check whether a value is an illegal number (Not-a-Number) and this function returns true if the value equals to be NaN. Otherwise it will return false. W3 schools information. 
+if (Number.isNaN(confirmPassword) || (confirmPassword < 8) || (confirmPassword > 128)) {
   alert("Password needs to be between 8 and 128 characters");
+  // Refresh the page to start all over again
+  location.reload();
 } else {
-  "Password is fine"
+  // Check if at least one password type is selected. Otherwise we are going to have to restart the process all over again
+
 }
 
 if (confirmLowercase === true) {
@@ -68,7 +68,7 @@ var generateButton = document.querySelector("#generate");
 
 function generatePassword() {
   // Set password length/complexity
-  let complexity = document.getElementById("slider").value;
+  // let complexity = document.getElementById("slider").value;
 
   //Possible password values
   var values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789!@#$%^&*()_+"
