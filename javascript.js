@@ -63,9 +63,6 @@ for (var i = 0; i < specialcharactersArray.length; i++) {
 
 }
 
-
-
-
 // Assignment Code
 var generateButton = document.querySelector("#generate");
 
@@ -81,8 +78,7 @@ function generatePassword() {
   // var values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789!@#$%^&*()_+"
 
   var values = []; // This is setting our variable values to an empty array
-
-  if (confirmLowerCase) values.push(lowercaseArray); // First if statement I want to use and then follow each condition for each variable
+  if (confirmLowercase) values.push(lowercaseArray); // First if statement I want to use and then follow each condition for each variable
   if (confirmUppercase) values.push(uppercaseArray);
   if (confirmNumeric) values.push(numericArray);
   if (confirmSpecialCharacters) values.push(specialcharactersArray);
@@ -91,37 +87,31 @@ function generatePassword() {
   var newPassword = "";
 
   for (var i = 0; i < complexity; i++) {
-    newPassword = values.charAt(Math.floor(Math.random() * Math.floor(values.length - 1)));
+    newPassword += values[(Math.floor(Math.random() * Math.floor(values.length - 1)))]; // This should be fixing the only giving back one character at a time issue I was having
 
   }
 
   // Add password to the textbox
-
   document.getElementById("password").value = newPassword;
 
   // Add password to previously generate passwords section
-  document.getElementById("last-used-passwords").innerHTML += newPassword + "<br /.";
-
-
-
-
-
+  document.getElementById("last-used-passwords").innerHTML += "<li>" + newPassword + "</li>";
 
 }
 
 // Default length display 
-var sliderValue = document.getElementById("slider").value
-document.getElementById("length").innerHTML = "Length: 8-128 characters"
+// var sliderValue = document.getElementById("slider").value
+// document.getElementById("length").innerHTML = "Length: 8-128 characters"
 
 // Create a function to set the length based on slider position
-document.getElementById("slider").oninput = function () {
-  if (document.getElementById("slider").value > 0) {
-    document.getElementById("length").innerHTML = "Length " + sliderValue;
+// document.getElementById("slider").oninput = function () {
+// if (document.getElementById("slider").value > 0) {
+// document.getElementById("length").innerHTML = "Length " + sliderValue;
 
-  } else {
-    document.getElementById("length").innerHTML = "Length: 1";
-  }
-}
+//   } else {
+//     document.getElementById("length").innerHTML = "Length: 1";
+//   }
+// }
 
 
 // Add prompts of what questions we need for our password: 
@@ -129,20 +119,11 @@ document.getElementById("slider").oninput = function () {
 // WHEN prompted for password criteria
 // THEN I select which criteria to include in the password
 
-
-
-
-
-
-
 // WHEN prompted for the length of the password
 // THEN I choose a length of at least 8 characters and no more than 128 characters
 
-
-
 // WHEN prompted for character types to include in the password
 // THEN I choose lowercase, uppercase, numeric, and/or special characters
-
 
 // Here we create our prompt and confirm variables which will store user input.
 
@@ -151,31 +132,24 @@ document.getElementById("slider").oninput = function () {
 // THEN my input should be validated and at least one character type should be selected
 
 
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateButton.addEventListener("click", writePassword);
 
 
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
 
-
-
-
-
-
-//Copy password to the saved passwords section that have already been used
+// Copy password to the saved passwords section that have already been used
 function savePassword() {
   document.getElementById("saved").select();
   document.execCommand("Copy");
   alert("Password is saved");
-}
+};
