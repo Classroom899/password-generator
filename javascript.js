@@ -19,7 +19,10 @@ if (Number.isNaN(confirmPassword) || (confirmPassword < 8) || (confirmPassword >
   location.reload();
 } else {
   // Check if at least one password type is selected. Otherwise we are going to have to restart the process all over again
-
+  if (!(confirmLowercase || confirmUppercase || confirmNumeric || confirmSpecialCharacters)) {
+    alert("Plase select at least one character type");
+    location.reload();
+  }
 }
 
 if (confirmLowercase === true) {
@@ -37,7 +40,7 @@ var options = {
 
 }
 
-//For loop to call a function a set number of times that will start grabbing items in each array, conditionals needed
+// For loop to call a function a set number of times that will start grabbing items in each array, conditionals needed
 // Fixed length accessor for my arrays
 
 for (var i = 0; i < uppercaseArray.length; i++) {
@@ -69,10 +72,22 @@ var generateButton = document.querySelector("#generate");
 function generatePassword() {
   // Set password length/complexity
   // let complexity = document.getElementById("slider").value;
+  // Changing this up to get rid of slider option and instead use an alert. Slider is overall redundant I believe
+
+  let complexity = confirmPassword;
 
   //Possible password values
-  var values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789!@#$%^&*()_+"
+  // Adding in some conditional statments
+  // var values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789!@#$%^&*()_+"
 
+  var values = []; // This is setting our variable values to an empty array
+
+  if (confirmLowerCase) values.push(lowercaseArray); // First if statement I want to use and then follow each condition for each variable
+  if (confirmUppercase) values.push(uppercaseArray);
+  if (confirmNumeric) values.push(numericArray);
+  if (confirmSpecialCharacters) values.push(specialcharactersArray);
+
+  console.log(values);
   var newPassword = "";
 
   for (var i = 0; i < complexity; i++) {
