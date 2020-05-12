@@ -145,7 +145,6 @@ generateButton.addEventListener("click", writePassword);
 
 // Copy password to the saved passwords section that have already been used
 function savePassword() {
-  document.getElementById("saved").select();
   document.execCommand("Copy");
   alert("Password is saved");
 };
