@@ -16,7 +16,7 @@ var specialcharactersArray = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
 if (Number.isNaN(confirmPassword) || (confirmPassword < 8) || (confirmPassword > 128)) {
   alert("Password needs to be between 8 and 128 characters");
   // Refresh the page to start all over again
-  // location.reload();
+  location.reload();
 } else {
   // Check if at least one password type is selected. Otherwise we are going to have to restart the process all over again
   if (!(confirmLowercase || confirmUppercase || confirmNumeric || confirmSpecialCharacters)) {
@@ -77,7 +77,7 @@ function generatePassword() {
   // Adding in some conditional statments
   // var values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789!@#$%^&*()_+"
 
-  var values = [uppercaseArray, lowercaseArray, numericArray, specialcharactersArray];
+  var values = []; // Needed to change this back to an empty array
   if (confirmLowercase) values.push(...lowercaseArray); // First if statement I want to use and then follow each condition for each variable
   if (confirmUppercase) values.push(...uppercaseArray);
   if (confirmNumeric) values.push(...numericArray);
@@ -113,7 +113,6 @@ function generatePassword() {
 //   }
 // }
 
-
 // Add prompts of what questions we need for our password: 
 
 // WHEN prompted for password criteria
@@ -127,10 +126,8 @@ function generatePassword() {
 
 // Here we create our prompt and confirm variables which will store user input.
 
-
 // WHEN I answer each prompt
 // THEN my input should be validated and at least one character type should be selected
-
 
 // Write password to the #password input
 function writePassword() {
@@ -142,7 +139,6 @@ function writePassword() {
 
 // Add event listener to generate button
 generateButton.addEventListener("click", writePassword);
-
 
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
